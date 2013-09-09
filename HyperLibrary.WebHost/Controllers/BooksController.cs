@@ -19,10 +19,29 @@ namespace HyperLibrary.WebHost.Controllers
             return _bookRepository.GetAll();
         }
 
-        // GET api/values/5
+        // GET api/books/5
         public Book Get(int id)
         {
             return _bookRepository.Get(id);
         }
+
+        // POST api/books
+        public void Post(Book book)
+        {
+            _bookRepository.Add(book);
+        }
+
+        // PUT api/book/5
+        public void Put(int id, [FromBody]Book book)
+        {
+            _bookRepository.Replace(book);
+        }
+
+        // DELETE api/books/5
+        public void Delete(int id)
+        {
+            _bookRepository.Delete(id);
+        }
     }
+
 }

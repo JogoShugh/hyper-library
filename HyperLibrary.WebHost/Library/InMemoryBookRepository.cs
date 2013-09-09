@@ -8,6 +8,8 @@ namespace HyperLibrary.WebHost.Library
         IEnumerable<Book> GetAll();
         Book Get(int bookId);
         void Add(Book book);
+        void Replace(Book book);
+        void Delete(int bookId);
     }
 
     public class InMemoryBookRepository : IInMemoryBookRepository
@@ -47,6 +49,16 @@ namespace HyperLibrary.WebHost.Library
         {
             book.Id = GetNextId();
             Books.Add(book);
+        }
+
+        public void Replace(Book book)
+        {
+            Books[Books.IndexOf(Get(book.Id))] = book;
+        }
+
+        public void Delete(int bookId)
+        {
+            Books.Remove(Get(bookId));
         }
     }
 }
