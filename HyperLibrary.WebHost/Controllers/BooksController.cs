@@ -7,17 +7,17 @@ namespace HyperLibrary.WebHost.Controllers
 {
     public class BooksController : ApiController
     {
-        private readonly IInMemoryBookRepository _bookRepository;
         private readonly AllBooksQueryHandler _allBooksQueryHandler;
         private readonly GetBookQueryHandler _bookQueryHandler;
         private readonly AddBookCommandHandler _addBookQueryHandler;
+        private readonly DeleteBookCommandHandler _deleteBookCommandHandler;
 
-        public BooksController(IInMemoryBookRepository bookRepository, AllBooksQueryHandler allBooksQueryHandler, GetBookQueryHandler bookQueryHandler, AddBookCommandHandler addBookQueryHandler)
+        public BooksController(AllBooksQueryHandler allBooksQueryHandler, GetBookQueryHandler bookQueryHandler, AddBookCommandHandler addBookQueryHandler, DeleteBookCommandHandler deleteBookCommandHandler)
         {
-            _bookRepository = bookRepository;
             _allBooksQueryHandler = allBooksQueryHandler;
             _bookQueryHandler = bookQueryHandler;
             _addBookQueryHandler = addBookQueryHandler;
+            _deleteBookCommandHandler = deleteBookCommandHandler;
         }
 
         // GET api/books
@@ -47,16 +47,16 @@ namespace HyperLibrary.WebHost.Controllers
             return httpResponseMessage;
         }
 
-        // PUT api/book/5
-        public void Put(int id, [FromBody]Book book)
-        {
-            _bookRepository.Replace(book);
-        }
-
         // DELETE api/books/5
-        public void Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
-            _bookRepository.Delete(id);
+            var foundAndDeleted = _deleteBookCommandHandler.Execute(id);
+            if (!foundAndDeleted)
+            {
+                //yes yes, it may not have been found but not deleted. This is a demo, its ok for now
+                Request.CreateErrorResponse(HttpStatusCode.NotFound, "Sorry - we could not find that book");
+            }
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
     }
 }

@@ -183,6 +183,7 @@
     <Compile Include="Library\BookResource.cs" />
     <Compile Include="Library\BookResourceMapper.cs" />
     <Compile Include="Library\BookState.cs" />
+    <Compile Include="Library\DeleteBookCommandHandler.cs" />
     <Compile Include="Library\GetBookQueryHandler.cs" />
     <Compile Include="Library\HttpUrlProvider.cs" />
     <Compile Include="Library\IHttpUrlProvider.cs" />

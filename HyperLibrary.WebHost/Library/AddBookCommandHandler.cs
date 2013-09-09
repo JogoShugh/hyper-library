@@ -10,6 +10,7 @@ namespace HyperLibrary.WebHost.Library
             _bookRepository = bookRepository;
             _bookResourceMapper = bookResourceMapper;
         }
+
         public BookResource Execute(Book bookToAdd)
         {
             var book = _bookRepository.Add(bookToAdd);
