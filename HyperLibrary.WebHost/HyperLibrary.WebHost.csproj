@@ -178,11 +178,15 @@
     </Compile>
     <Compile Include="Library\AddBookCommandHandler.cs" />
     <Compile Include="Library\AllBooksQueryHandler.cs" />
+    <Compile Include="Library\AllCheckedInBooksQueryHandler.cs" />
+    <Compile Include="Library\AllCheckedOutBooksQueryHandler.cs" />
     <Compile Include="Library\Book.cs" />
     <Compile Include="Library\BookCatalogResource.cs" />
     <Compile Include="Library\BookResource.cs" />
     <Compile Include="Library\BookResourceMapper.cs" />
     <Compile Include="Library\BookState.cs" />
+    <Compile Include="Library\CheckInCommandHandler.cs" />
+    <Compile Include="Library\CheckOutCommandHandler.cs" />
     <Compile Include="Library\DeleteBookCommandHandler.cs" />
     <Compile Include="Library\GetBookQueryHandler.cs" />
     <Compile Include="Library\HttpUrlProvider.cs" />

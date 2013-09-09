@@ -1,31 +1,38 @@
-using System.Collections.Generic;
-using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using HyperLibrary.WebHost.Library;
 
 namespace HyperLibrary.WebHost.Controllers
 {
-
     public class CheckedOutController : ApiController
     {
-        private readonly IInMemoryBookRepository _bookRepository;
+        private readonly AllCheckedOutBooksQueryHandler _checkedOutBooksQueryHandler;
+        private readonly CheckOutCommandHandler _checkoutCommandHandler;
 
-        public CheckedOutController(IInMemoryBookRepository bookRepository)
+        public CheckedOutController(AllCheckedOutBooksQueryHandler checkedOutBooksQueryHandler, CheckOutCommandHandler checkoutCommandHandler)
         {
-            _bookRepository = bookRepository;
+            _checkedOutBooksQueryHandler = checkedOutBooksQueryHandler;
+            _checkoutCommandHandler = checkoutCommandHandler;
         }
 
         // GET api/checkedout
-        public IEnumerable<Book> Get()
+        public HttpResponseMessage Get()
         {
-            return _bookRepository.GetAll().Where(book => book.State == BookState.CheckedOut);
+            var booksResource = _checkedOutBooksQueryHandler.Query();
+            return Request.CreateResponse(HttpStatusCode.OK, booksResource);
         }
 
         // GET api/checkedout
-        public void Post(int id)
+        public HttpResponseMessage Post(int id)
         {
-            var book = _bookRepository.Get(id);
-            book.CheckOut("fake user");
+            var book = _checkoutCommandHandler.Execute(id);
+            if (book != null)
+            {
+                //yes yes, it may not have been found but not deleted. This is a demo, its ok for now
+                Request.CreateErrorResponse(HttpStatusCode.NotFound, "Sorry - we could not find that book");
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, book);
         }
     }
 }
