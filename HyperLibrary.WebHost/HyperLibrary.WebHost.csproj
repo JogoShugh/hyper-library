@@ -176,6 +176,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Library\AddBookCommandHandler.cs" />
     <Compile Include="Library\AllBooksQueryHandler.cs" />
     <Compile Include="Library\Book.cs" />
     <Compile Include="Library\BookCatalogResource.cs" />

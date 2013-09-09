@@ -7,7 +7,7 @@ namespace HyperLibrary.WebHost.Library
     {
         IEnumerable<Book> GetAll();
         Book Get(int bookId);
-        void Add(Book book);
+        Book Add(Book book);
         void Replace(Book book);
         void Delete(int bookId);
     }
@@ -45,10 +45,11 @@ namespace HyperLibrary.WebHost.Library
             return Books.FirstOrDefault(book => book.Id == bookId);
         }
 
-        public void Add(Book book)
+        public Book Add(Book book)
         {
             book.Id = GetNextId();
             Books.Add(book);
+            return book;
         }
 
         public void Replace(Book book)

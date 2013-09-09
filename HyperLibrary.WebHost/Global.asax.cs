@@ -23,6 +23,7 @@ namespace HyperLibrary.WebHost
             builder.RegisterType<InMemoryBookRepository>().As<IInMemoryBookRepository>().InstancePerApiRequest();
             builder.RegisterType<GetBookQueryHandler>().InstancePerApiRequest();
             builder.RegisterType<AllBooksQueryHandler>().InstancePerApiRequest();
+            builder.RegisterType<AddBookCommandHandler>().InstancePerApiRequest();
             builder.RegisterType<BookResourceMapper>().InstancePerApiRequest();
             builder.RegisterType<HttpUrlProvider>().As<IHttpUrlProvider>().InstancePerApiRequest();
             builder.RegisterType<ResourceLinker>().As<IResourceLinker>();
