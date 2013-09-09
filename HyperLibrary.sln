@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F282CC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperLibrary.Core", "HyperLibrary.Core\HyperLibrary.Core.csproj", "{2F62B326-33C6-4517-B335-D4FF3CC28D33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperLibrary.ConsoleHost", "HyperLibrary.ConsoleHost\HyperLibrary.ConsoleHost.csproj", "{93343670-4E39-4F22-9025-7BFF3AD1E19E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{2F62B326-33C6-4517-B335-D4FF3CC28D33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F62B326-33C6-4517-B335-D4FF3CC28D33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F62B326-33C6-4517-B335-D4FF3CC28D33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93343670-4E39-4F22-9025-7BFF3AD1E19E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93343670-4E39-4F22-9025-7BFF3AD1E19E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93343670-4E39-4F22-9025-7BFF3AD1E19E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93343670-4E39-4F22-9025-7BFF3AD1E19E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

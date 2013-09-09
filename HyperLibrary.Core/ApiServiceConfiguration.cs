@@ -19,14 +19,17 @@ namespace HyperLibrary.Core
 
         public void Configure()
         {
-            ConfigureDependencies();
+            _configuration.MessageHandlers.Add(new CurrentRequestResolver());
             ConfigureRoutes();
+            ConfigureDependencies();
         }
 
         private void ConfigureDependencies()
         {
             var builder = new ContainerBuilder();
-            builder.Register(c => GlobalConfiguration.Configuration.Routes);
+            builder.Register(c => _configuration).As<HttpConfiguration>();
+            builder.Register(c => _configuration.Routes).As<HttpRouteCollection>();
+            builder.Register(c => new CurrentRequestUri()).InstancePerApiRequest();
             builder.RegisterType<InMemoryBookRepository>().As<IInMemoryBookRepository>().InstancePerApiRequest();
             builder.RegisterType<GetBookQueryHandler>();
             builder.RegisterType<AllBooksQueryHandler>();
