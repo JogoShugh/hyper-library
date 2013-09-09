@@ -17,7 +17,5 @@ namespace HyperLibrary.WebHost.Library
             var resource = _bookResourceMapper.MapToResouce(book);
             return resource;
         }
-
-    
     }
 }
