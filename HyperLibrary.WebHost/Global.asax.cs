@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Autofac;
+﻿using Autofac;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -21,11 +19,11 @@ namespace HyperLibrary.WebHost
             var builder = new ContainerBuilder();
             builder.Register(c => GlobalConfiguration.Configuration.Routes);
             builder.RegisterType<InMemoryBookRepository>().As<IInMemoryBookRepository>().InstancePerApiRequest();
-            builder.RegisterType<GetBookQueryHandler>().InstancePerApiRequest();
-            builder.RegisterType<AllBooksQueryHandler>().InstancePerApiRequest();
-            builder.RegisterType<AddBookCommandHandler>().InstancePerApiRequest();
-            builder.RegisterType<DeleteBookCommandHandler>().InstancePerApiRequest();
-            builder.RegisterType<BookResourceMapper>().InstancePerApiRequest();
+            builder.RegisterType<GetBookQueryHandler>();
+            builder.RegisterType<AllBooksQueryHandler>();
+            builder.RegisterType<AddBookCommandHandler>();
+            builder.RegisterType<DeleteBookCommandHandler>();
+            builder.RegisterType<BookResourceMapper>();
             builder.RegisterType<HttpUrlProvider>().As<IHttpUrlProvider>().InstancePerApiRequest();
             builder.RegisterType<ResourceLinker>().As<IResourceLinker>();
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
