@@ -16,9 +16,9 @@ The requirements below cover CRUD management of a library as well as a library b
       * Then it should have an id
       * Then it should have a title
       * Then it should have a description
-      * Then it should have a state(avalible,checked out, on hold... )
+      * Then it should have a state(check in,checked out )
       * Then it should have a self link
-      * Then it should have a transition link
+      * Then it should have a transition links
   * Given an existing avalible book
     * When a GET request is made for it
       * Then it should have a checkout link
