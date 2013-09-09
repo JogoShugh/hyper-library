@@ -34,6 +34,8 @@ namespace HyperLibrary.Core
             builder.RegisterType<DeleteBookCommandHandler>();
             builder.RegisterType<AllCheckedInBooksQueryHandler>();
             builder.RegisterType<CheckInCommandHandler>();
+            builder.RegisterType<AllCheckedOutBooksQueryHandler>();
+            builder.RegisterType<CheckOutCommandHandler>();
             builder.RegisterType<BookResourceMapper>();
             builder.RegisterType<HttpUrlProvider>().As<IHttpUrlProvider>().InstancePerApiRequest();
             builder.RegisterType<ResourceLinker>().As<IResourceLinker>();
