@@ -23,6 +23,8 @@ namespace HyperLibrary.WebHost
             builder.RegisterType<AllBooksQueryHandler>();
             builder.RegisterType<AddBookCommandHandler>();
             builder.RegisterType<DeleteBookCommandHandler>();
+            builder.RegisterType<AllCheckedInBooksQueryHandler>();
+            builder.RegisterType<CheckInCommandHandler>();
             builder.RegisterType<BookResourceMapper>();
             builder.RegisterType<HttpUrlProvider>().As<IHttpUrlProvider>().InstancePerApiRequest();
             builder.RegisterType<ResourceLinker>().As<IResourceLinker>();
