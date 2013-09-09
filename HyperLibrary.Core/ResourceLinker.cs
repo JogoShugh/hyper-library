@@ -87,8 +87,7 @@ namespace HyperLibrary.Core
                 {
                     var expression = callExpression.Arguments[i];
                     ConstantExpression constantExpression = expression as ConstantExpression;
-                    object value = constantExpression != null ? GetValueFromConstantExpression(constantExpression) : GetCurrentValueFromExpression(expression);
-                    value = _httpUrlProvider.EncodeUrl(value.ToString());            
+                    object value = constantExpression != null ? GetValueFromConstantExpression(constantExpression) : GetCurrentValueFromExpression(expression);           
                     result.Add(parameters[i].Name, value.ToString());
                 }
             }

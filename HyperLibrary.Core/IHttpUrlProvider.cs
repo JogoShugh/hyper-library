@@ -5,6 +5,6 @@ namespace HyperLibrary.Core
     public interface IHttpUrlProvider
     {
         Uri GetBaseUrl();
-        string EncodeUrl(string urlParameter);
+      //  string EncodeUrl(string urlParameter);
     }
 }
