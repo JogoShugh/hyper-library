@@ -22,7 +22,6 @@ namespace HyperLibrary.WebHost.Controllers
         }
 
         // GET api/checkedout
-        [RouteName("DefaultApi")]
         public void Post(int id)
         {
             var book = _bookRepository.Get(id);
