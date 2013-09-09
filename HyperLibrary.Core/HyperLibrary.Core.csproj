@@ -32,6 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.1.1\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi">
+      <HintPath>..\packages\Autofac.WebApi.3.1.0\lib\net40\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -64,27 +70,28 @@
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CheckedOutController.cs" />
     <Compile Include="Controllers\CheckInController.cs" />
-    <Compile Include="Library\AddBookCommandHandler.cs" />
-    <Compile Include="Library\AllBooksQueryHandler.cs" />
-    <Compile Include="Library\AllCheckedInBooksQueryHandler.cs" />
-    <Compile Include="Library\AllCheckedOutBooksQueryHandler.cs" />
-    <Compile Include="Library\Book.cs" />
-    <Compile Include="Library\BookCatalogResource.cs" />
-    <Compile Include="Library\BookResource.cs" />
-    <Compile Include="Library\BookResourceMapper.cs" />
-    <Compile Include="Library\BookState.cs" />
-    <Compile Include="Library\CheckInCommandHandler.cs" />
-    <Compile Include="Library\CheckOutCommandHandler.cs" />
-    <Compile Include="Library\DeleteBookCommandHandler.cs" />
-    <Compile Include="Library\GetBookQueryHandler.cs" />
-    <Compile Include="Library\HttpUrlProvider.cs" />
-    <Compile Include="Library\IHttpUrlProvider.cs" />
-    <Compile Include="Library\InMemoryBookRepository.cs" />
-    <Compile Include="Library\IResourceLinker.cs" />
-    <Compile Include="Library\Link.cs" />
-    <Compile Include="Library\LinkableResource.cs" />
-    <Compile Include="Library\ResourceLinker.cs" />
-    <Compile Include="Library\RouteNotFoundException.cs" />
+    <Compile Include="Commands\AddBookCommandHandler.cs" />
+    <Compile Include="ApiServiceConfiguration.cs" />
+    <Compile Include="Queries\AllBooksQueryHandler.cs" />
+    <Compile Include="Queries\AllCheckedInBooksQueryHandler.cs" />
+    <Compile Include="Queries\AllCheckedOutBooksQueryHandler.cs" />
+    <Compile Include="LibraryModel\Book.cs" />
+    <Compile Include="Resources\BookCatalogResource.cs" />
+    <Compile Include="Resources\BookResource.cs" />
+    <Compile Include="LibraryModel\BookResourceMapper.cs" />
+    <Compile Include="LibraryModel\BookState.cs" />
+    <Compile Include="Commands\CheckInCommandHandler.cs" />
+    <Compile Include="Commands\CheckOutCommandHandler.cs" />
+    <Compile Include="Commands\DeleteBookCommandHandler.cs" />
+    <Compile Include="Queries\GetBookQueryHandler.cs" />
+    <Compile Include="HttpUrlProvider.cs" />
+    <Compile Include="IHttpUrlProvider.cs" />
+    <Compile Include="LibraryModel\InMemoryBookRepository.cs" />
+    <Compile Include="IResourceLinker.cs" />
+    <Compile Include="Resources\Link.cs" />
+    <Compile Include="Resources\LinkableResource.cs" />
+    <Compile Include="ResourceLinker.cs" />
+    <Compile Include="RouteNotFoundException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

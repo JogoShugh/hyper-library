@@ -1,6 +1,6 @@
 using System;
 
-namespace HyperLibrary.Core.Library
+namespace HyperLibrary.Core.Resources
 {
     public class Link
     {

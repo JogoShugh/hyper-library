@@ -2,8 +2,9 @@ using System;
 using System.Linq.Expressions;
 using System.Net.Http;
 using System.Web.Http;
+using HyperLibrary.Core.Resources;
 
-namespace HyperLibrary.Core.Library
+namespace HyperLibrary.Core
 {
     public interface IResourceLinker
     {

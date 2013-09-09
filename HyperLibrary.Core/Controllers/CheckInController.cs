@@ -1,7 +1,8 @@
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using HyperLibrary.Core.Library;
+using HyperLibrary.Core.Commands;
+using HyperLibrary.Core.Queries;
 
 namespace HyperLibrary.Core.Controllers
 {

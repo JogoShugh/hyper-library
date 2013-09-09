@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace HyperLibrary.Core.Library
+namespace HyperLibrary.Core.Resources
 {
     public abstract class LinkableResource
     {

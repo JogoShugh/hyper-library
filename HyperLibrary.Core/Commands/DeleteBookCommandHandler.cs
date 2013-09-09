@@ -1,4 +1,6 @@
-namespace HyperLibrary.Core.Library
+using HyperLibrary.Core.LibraryModel;
+
+namespace HyperLibrary.Core.Commands
 {
     public class DeleteBookCommandHandler
     {

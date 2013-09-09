@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HyperLibrary.Core.Library
+namespace HyperLibrary.Core.LibraryModel
 {
     public interface IInMemoryBookRepository
     {

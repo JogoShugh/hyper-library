@@ -1,4 +1,7 @@
-namespace HyperLibrary.Core.Library
+using HyperLibrary.Core.LibraryModel;
+using HyperLibrary.Core.Resources;
+
+namespace HyperLibrary.Core.Commands
 {
     public class CheckInCommandHandler
     {

@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using HyperLibrary.Core.Controllers;
+using HyperLibrary.Core.Resources;
 
-namespace HyperLibrary.Core.Library
+namespace HyperLibrary.Core.LibraryModel
 {
     public class BookResourceMapper
     {

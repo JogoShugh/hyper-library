@@ -6,8 +6,9 @@ using System.Net.Http;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Routing;
+using HyperLibrary.Core.Resources;
 
-namespace HyperLibrary.Core.Library
+namespace HyperLibrary.Core
 {
     public class ResourceLinker : IResourceLinker
     {
