@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace HyperLibrary.WebHost.Library
+namespace HyperLibrary.Core.Library
 {
     public class BookCatalogResource : LinkableResource
     {

@@ -1,9 +1,9 @@
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using HyperLibrary.WebHost.Library;
+using HyperLibrary.Core.Library;
 
-namespace HyperLibrary.WebHost.Controllers
+namespace HyperLibrary.Core.Controllers
 {
     public class CheckInController : ApiController
     {

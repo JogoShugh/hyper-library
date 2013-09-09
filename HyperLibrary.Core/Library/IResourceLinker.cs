@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace HyperLibrary.WebHost.Library
+namespace HyperLibrary.Core.Library
 {
     public interface IResourceLinker
     {

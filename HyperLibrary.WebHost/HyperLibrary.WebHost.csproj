@@ -169,34 +169,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\CheckedOutController.cs" />
-    <Compile Include="Controllers\CheckInController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Library\AddBookCommandHandler.cs" />
-    <Compile Include="Library\AllBooksQueryHandler.cs" />
-    <Compile Include="Library\AllCheckedInBooksQueryHandler.cs" />
-    <Compile Include="Library\AllCheckedOutBooksQueryHandler.cs" />
-    <Compile Include="Library\Book.cs" />
-    <Compile Include="Library\BookCatalogResource.cs" />
-    <Compile Include="Library\BookResource.cs" />
-    <Compile Include="Library\BookResourceMapper.cs" />
-    <Compile Include="Library\BookState.cs" />
-    <Compile Include="Library\CheckInCommandHandler.cs" />
-    <Compile Include="Library\CheckOutCommandHandler.cs" />
-    <Compile Include="Library\DeleteBookCommandHandler.cs" />
-    <Compile Include="Library\GetBookQueryHandler.cs" />
-    <Compile Include="Library\HttpUrlProvider.cs" />
-    <Compile Include="Library\IHttpUrlProvider.cs" />
-    <Compile Include="Library\InMemoryBookRepository.cs" />
-    <Compile Include="Library\IResourceLinker.cs" />
-    <Compile Include="Library\Link.cs" />
-    <Compile Include="Library\LinkableResource.cs" />
-    <Compile Include="Library\ResourceLinker.cs" />
-    <Compile Include="Library\RouteNotFoundException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -318,6 +294,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HyperLibrary.Core\HyperLibrary.Core.csproj">
+      <Project>{2F62B326-33C6-4517-B335-D4FF3CC28D33}</Project>
+      <Name>HyperLibrary.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

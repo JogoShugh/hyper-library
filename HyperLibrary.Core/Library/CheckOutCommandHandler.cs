@@ -1,11 +1,11 @@
-namespace HyperLibrary.WebHost.Library
+namespace HyperLibrary.Core.Library
 {
-    public class CheckInCommandHandler
+    public class CheckOutCommandHandler
     {
         private readonly IInMemoryBookRepository _bookRepository;
         private readonly BookResourceMapper _bookResourceMapper;
 
-        public CheckInCommandHandler(IInMemoryBookRepository bookRepository, BookResourceMapper bookResourceMapper)
+        public CheckOutCommandHandler(IInMemoryBookRepository bookRepository, BookResourceMapper bookResourceMapper)
         {
             _bookRepository = bookRepository;
             _bookResourceMapper = bookResourceMapper;
@@ -14,7 +14,7 @@ namespace HyperLibrary.WebHost.Library
         public BookResource Execute(int checkIn)
         {
             var book = _bookRepository.Get(checkIn);
-            book.CheckIn("fake user");
+            book.CheckOut("fake user");
             var resource = _bookResourceMapper.MapToResouce(book);
             return resource;
         }

@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Routing;
 
-namespace HyperLibrary.WebHost.Library
+namespace HyperLibrary.Core.Library
 {
     public class ResourceLinker : IResourceLinker
     {

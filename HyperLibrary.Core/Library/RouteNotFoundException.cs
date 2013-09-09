@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace HyperLibrary.WebHost.Library
+namespace HyperLibrary.Core.Library
 {
     [Serializable]
     public class RouteNotFoundException : Exception

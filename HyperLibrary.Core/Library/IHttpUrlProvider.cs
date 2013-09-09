@@ -1,6 +1,6 @@
 using System;
 
-namespace HyperLibrary.WebHost.Library
+namespace HyperLibrary.Core.Library
 {
     public interface IHttpUrlProvider
     {

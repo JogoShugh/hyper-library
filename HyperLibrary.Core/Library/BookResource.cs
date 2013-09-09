@@ -1,4 +1,4 @@
-namespace HyperLibrary.WebHost.Library
+namespace HyperLibrary.Core.Library
 {
     public class BookResource : LinkableResource
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Web;
 
-namespace HyperLibrary.WebHost.Library
+namespace HyperLibrary.Core.Library
 {
     public class HttpUrlProvider : IHttpUrlProvider
     {

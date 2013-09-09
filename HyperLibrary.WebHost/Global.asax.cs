@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac.Integration.WebApi;
-using HyperLibrary.WebHost.Library;
+using HyperLibrary.Core.Library;
 
 namespace HyperLibrary.WebHost
 {
@@ -28,7 +28,7 @@ namespace HyperLibrary.WebHost
             builder.RegisterType<BookResourceMapper>();
             builder.RegisterType<HttpUrlProvider>().As<IHttpUrlProvider>().InstancePerApiRequest();
             builder.RegisterType<ResourceLinker>().As<IResourceLinker>();
-            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            builder.RegisterApiControllers(Assembly.Load("HyperLibrary.Core"));
             var container = builder.Build();
             var resolver = new AutofacWebApiDependencyResolver(container);
             GlobalConfiguration.Configuration.DependencyResolver = resolver;
