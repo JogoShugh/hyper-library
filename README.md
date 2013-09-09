@@ -19,13 +19,12 @@ The requirements below cover CRUD management of a library as well as a library b
       * Then it should have a state(check in,checked out )
       * Then it should have a self link
       * Then it should have a transition links
-  * Given an existing avalible book
+  * Given an existing checked in book
     * When a GET request is made for it
       * Then it should have a checkout link
-      * Then it should have a request hold link
   * Given an existing checked out book
     * When a GET request is made for it
-      * Then it should have an request hold link
+      * Then it should have a check in link
   * Given a book does not exist
     * When a GET request is made for it
       * Then a '404 Not Found' status is returned
