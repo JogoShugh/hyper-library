@@ -190,7 +190,6 @@
     <Compile Include="Library\ResourceLinker.cs" />
     <Compile Include="Library\RouteNotFoundException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RouteNameAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

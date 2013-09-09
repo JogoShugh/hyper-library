@@ -21,9 +21,9 @@ namespace HyperLibrary.WebHost.Controllers
         }
 
         // GET api/checkedin
-        public void Post(int bookId)
+        public void Post(int id)
         {
-            var book = _bookRepository.Get(bookId);
+            var book = _bookRepository.Get(id);
             book.CheckIn("fake user");
         }
     }

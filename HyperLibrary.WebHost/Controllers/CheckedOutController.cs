@@ -5,6 +5,7 @@ using HyperLibrary.WebHost.Library;
 
 namespace HyperLibrary.WebHost.Controllers
 {
+
     public class CheckedOutController : ApiController
     {
         private readonly IInMemoryBookRepository _bookRepository;
@@ -21,9 +22,10 @@ namespace HyperLibrary.WebHost.Controllers
         }
 
         // GET api/checkedout
-        public void Post(int bookId)
+        [RouteName("DefaultApi")]
+        public void Post(int id)
         {
-            var book = _bookRepository.Get(bookId);
+            var book = _bookRepository.Get(id);
             book.CheckOut("fake user");
         }
     }

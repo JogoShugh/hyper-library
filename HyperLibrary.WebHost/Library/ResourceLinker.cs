@@ -46,7 +46,7 @@ namespace HyperLibrary.WebHost.Library
             var uriTemplate = new UriTemplate(route.RouteTemplate, true);
             var baseUrl = _httpUrlProvider.GetBaseUrl();
 
-            var paramaters = BuildParameterValuesFromExpression(method);
+            var paramaters = BuildUriTemplateValuesFromExpression(method);
             var uri = uriTemplate.BindByName(baseUrl, paramaters);
             return new Link{Name = name,Rel = rel, Uri = uri};
         }
@@ -62,17 +62,18 @@ namespace HyperLibrary.WebHost.Library
         {
             MethodCallExpression methodCallExpression = (MethodCallExpression)actionMethod.Body;
             var methodInfo = methodCallExpression.Method;
-            RouteNameAttribute routNameAttribute = methodInfo.GetCustomAttributes(typeof(RouteNameAttribute), true).Cast<RouteNameAttribute>().First();
-            return routNameAttribute.RouteName;
+            RouteNameAttribute routNameAttribute = methodInfo.GetCustomAttributes(typeof(RouteNameAttribute), true).Cast<RouteNameAttribute>().FirstOrDefault();
+            return routNameAttribute != null ? routNameAttribute.RouteName : "DefaultApi";
         }
 
-        private IDictionary<string, string> BuildParameterValuesFromExpression<T>(Expression<Action<T>> actionMethod)
+        private IDictionary<string, string> BuildUriTemplateValuesFromExpression<T>(Expression<Action<T>> actionMethod)
         {
             IDictionary<string, string> result = new Dictionary<string, string>();
             MethodCallExpression callExpression = (MethodCallExpression)actionMethod.Body;
 
             ParameterInfo[] parameters = callExpression.Method.GetParameters();
-
+            var controllerName = (typeof (T)).Name.Replace("Controller",string.Empty);
+            result.Add("controller", controllerName);
             if (parameters.Any())
             {
                 for (int i = 0; i < parameters.Length; i++)
@@ -101,6 +102,14 @@ namespace HyperLibrary.WebHost.Library
             var getter = getterLambda.Compile();
             return getter();
         }
+    }
+    public class RouteNameAttribute : Attribute
+    {
+        public string RouteName { get; private set; }
 
+        public RouteNameAttribute(string routeName)
+        {
+            RouteName = routeName;
+        }
     }
 }
