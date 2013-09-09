@@ -17,6 +17,16 @@ namespace HyperLibrary.WebHost.Library
         public BookState State { get; private set; }
         public string CheckedOutTo { get; private set; }
 
+        public bool IsCheckedOut
+        {
+            get { return State == BookState.CheckedOut; }
+        }
+
+        public bool IsCheckedIn
+        {
+            get { return State == BookState.CheckedIn; }
+        }
+
         public void CheckOut(string checkedOutByUser)
         {
             if(State != BookState.CheckedIn)
