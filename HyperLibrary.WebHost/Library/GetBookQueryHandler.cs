@@ -15,7 +15,7 @@ namespace HyperLibrary.WebHost.Library
             _resourceLinker = resourceLinker;
         }
 
-        public BookResource Handle(int bookId)
+        public BookResource Query(int bookId)
         {
             var book = _bookRepository.Get(bookId);
             BookResource resource = new BookResource();
