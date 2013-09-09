@@ -42,13 +42,19 @@ namespace HyperLibrary.WebHost.Library
             {
                 throw new RouteNotFoundException(string.Format("Route for action '{0}' was not found", routeNameForAction));
             }
+            var uri = BindTemplate(method, route);
+            return new Link{Name = name,Rel = rel, Uri = uri};
+        }
 
-            var uriTemplate = new UriTemplate(route.RouteTemplate, true);
+        private Uri BindTemplate<T>(Expression<Action<T>> method, IHttpRoute route) where T : ApiController
+        {
+            IDictionary<string, string> defaults = new Dictionary<string, string> {{"id", null}};
+            var uriTemplate = new UriTemplate(route.RouteTemplate, true, defaults);
             var baseUrl = _httpUrlProvider.GetBaseUrl();
 
             var paramaters = BuildUriTemplateValuesFromExpression(method);
             var uri = uriTemplate.BindByName(baseUrl, paramaters);
-            return new Link{Name = name,Rel = rel, Uri = uri};
+            return uri;
         }
 
         private IHttpRoute GetRouteForAction(string routeNameForAction)
