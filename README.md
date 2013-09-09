@@ -45,17 +45,8 @@ The requirements below cover CRUD management of a library as well as a library b
   * Given a book does not exist
     * When a DELETE request is made for it
       * Then a '404 Not Found' status is returned
-    
-4 Scenario: Updating a book
-  * Given an existing book
-    * When a PATCH request is made for it
-        * Then the book resource is updated
-        * Then a '200 OK' is returned
-  * Given an issue does not exist
-   * When a PATCH request is made for it
-        * Then a '404 Not Found' status is returned
-    
-5 Scenario: Checking out a book
+
+4 Scenario: Checking out a book
   * Given an existing checked in book is to be checked out
     * When a POST request is made with a checkout action
         * Then it is checked out
@@ -65,7 +56,7 @@ The requirements below cover CRUD management of a library as well as a library b
         * Then it is checked in
         * Then a '200 OK' is returned
         * 
-6 Scenario: Checking in a book
+5 Scenario: Checking in a book
   * Given an existing checked out book is to be checked in
     * When a POST request is made with a checkout action
         * Then it is checked in
