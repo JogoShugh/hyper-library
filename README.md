@@ -61,11 +61,16 @@ The requirements below cover CRUD management of a library as well as a library b
     * When a POST request is made with a checkout action
         * Then it is checked out
         * Then a '200 OK' is returned
-  *Given an existing checked out book is to be checked back in
-    * When a POST request is made with a checkin action
-        * Then it is checked in
-        * Then a '200 OK' is returned
   *Given an existing checked out book is to be placed on hold 
     * When a POST request is made with a checkin action
         * Then it is checked in
         * Then a '200 OK' is returned
+        * 
+6 Scenario: Checking in a book
+  * Given an existing checked out book is to be checked in
+    * When a POST request is made with a checkout action
+        * Then it is checked in
+        * Then a '200 OK' is returned
+  *Given an existing checked in book is not able to be checked back in
+    * When a POST request is made with a checkout action
+        * Then a '403 forbidden' is returned
