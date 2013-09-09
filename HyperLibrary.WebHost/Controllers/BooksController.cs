@@ -9,18 +9,21 @@ namespace HyperLibrary.WebHost.Controllers
     public class BooksController : ApiController
     {
         private readonly IInMemoryBookRepository _bookRepository;
+        private readonly AllBooksQueryHandler _allBooksQueryHandler;
         private readonly GetBookQueryHandler _bookQueryHandler;
 
-        public BooksController(IInMemoryBookRepository bookRepository, GetBookQueryHandler bookQueryHandler)
+        public BooksController(IInMemoryBookRepository bookRepository, AllBooksQueryHandler allBooksQueryHandler, GetBookQueryHandler bookQueryHandler)
         {
             _bookRepository = bookRepository;
+            _allBooksQueryHandler = allBooksQueryHandler;
             _bookQueryHandler = bookQueryHandler;
         }
 
         // GET api/books
-        public IEnumerable<Book> Get()
+        public HttpResponseMessage Get()
         {
-            return _bookRepository.GetAll();
+            var booksResource = _allBooksQueryHandler.Query();
+            return Request.CreateResponse(HttpStatusCode.OK, booksResource);
         }
 
         // GET api/books/5
