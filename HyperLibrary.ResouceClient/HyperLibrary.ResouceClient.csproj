@@ -49,9 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookBag.cs" />
     <Compile Include="Books.cs" />
     <Compile Include="Book.cs" />
-    <Compile Include="Demo.cs" />
+    <Compile Include="LibaryOptions.cs" />
+    <Compile Include="LibraryExplorer.cs" />
     <Compile Include="LibraryApiClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

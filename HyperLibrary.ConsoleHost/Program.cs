@@ -33,8 +33,8 @@ namespace HyperLibrary.ConsoleHost
 
         private static Task StartRegularRestDemo() 
         {
-            Demo d = new Demo(ServerUri);
-            return d.StartDemo();
+            LibraryExplorer d = new LibraryExplorer(ServerUri);
+            return d.Explore();
         }
     }
 }

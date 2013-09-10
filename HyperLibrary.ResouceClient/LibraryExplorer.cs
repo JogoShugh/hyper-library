@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace HyperLibrary.ResouceClient
 {
-    public class Demo
+    public class LibraryExplorer
     {
         private readonly LibraryApiClient _libraryApi;
         private readonly BookBag _bookBag;
 
-        public Demo(Uri serverEndpoint)
+        public LibraryExplorer(Uri serverEndpoint)
         {
             _libraryApi = new LibraryApiClient(serverEndpoint);
             _bookBag = new BookBag();
         }
 
-        public async Task StartDemo()
+        public async Task Explore()
         {
             Console.WriteLine();
             Console.WriteLine("**************** Welcome to the Library ****************");
@@ -36,7 +34,7 @@ namespace HyperLibrary.ResouceClient
                 case LibaryOptions.LeaveLibary:
                     return;
             }
-            await StartDemo();   
+            await Explore();   
         }
 
         private void ViewCheckedOutBooks()
@@ -96,13 +94,7 @@ namespace HyperLibrary.ResouceClient
             return (LibaryOptions) option;
         }
 
-        public enum LibaryOptions
-        {
-            ExploreLibrary = 1,
-            ViewCheckedOutBooks = 2,
-            ReturnBooks = 3,
-            LeaveLibary = 4,
-        }
+
 
         private static bool ShouldCheckout()
         {
@@ -194,32 +186,6 @@ namespace HyperLibrary.ResouceClient
             }
             return successfullyCheckedIn;
 
-        }
-    }
-
-
-    public class BookBag : List<Book>
-    {
-        public bool IsNotInBookBag(Book book)
-        {
-            return this.All(checkOutBook => checkOutBook.Id != book.Id);
-        }
-
-        public bool IsInBookBag(int bookId)
-        {
-            return this.Any(book => book.Id == bookId);
-        }
-
-        public void AddCheckedoutBook(Book selectedBook)
-        {
-            Add(selectedBook);
-        }
-
-        public Book RemoveBook(int bookId)
-        {
-            Book bookToRemove = this.FirstOrDefault(book => book.Id == bookId);
-            Remove(bookToRemove);
-            return bookToRemove;
         }
     }
 }
