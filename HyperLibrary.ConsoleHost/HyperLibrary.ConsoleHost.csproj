@@ -69,6 +69,10 @@
       <Project>{2F62B326-33C6-4517-B335-D4FF3CC28D33}</Project>
       <Name>HyperLibrary.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HyperLibrary.ResouceClient\HyperLibrary.ResouceClient.csproj">
+      <Project>{1DE9B22A-0298-43F1-9F80-AA090A629BA0}</Project>
+      <Name>HyperLibrary.ResouceClient</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

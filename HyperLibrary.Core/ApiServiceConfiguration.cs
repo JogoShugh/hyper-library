@@ -19,7 +19,6 @@ namespace HyperLibrary.Core
 
         public void Configure()
         {
-            _configuration.MessageHandlers.Add(new CurrentRequestResolver());
             ConfigureRoutes();
             ConfigureDependencies();
         }
@@ -27,9 +26,8 @@ namespace HyperLibrary.Core
         private void ConfigureDependencies()
         {
             var builder = new ContainerBuilder();
-            builder.Register(c => _configuration).As<HttpConfiguration>();
+            builder.RegisterHttpRequestMessage(_configuration);
             builder.Register(c => _configuration.Routes).As<HttpRouteCollection>();
-            builder.Register(c => new CurrentRequestUri()).InstancePerApiRequest();
             builder.RegisterType<InMemoryBookRepository>().As<IInMemoryBookRepository>().InstancePerApiRequest();
             builder.RegisterType<GetBookQueryHandler>();
             builder.RegisterType<AllBooksQueryHandler>();
@@ -40,7 +38,7 @@ namespace HyperLibrary.Core
             builder.RegisterType<AllCheckedOutBooksQueryHandler>();
             builder.RegisterType<CheckOutCommandHandler>();
             builder.RegisterType<BookResourceMapper>();
-            builder.RegisterType<HttpUrlProvider>().As<IHttpUrlProvider>().InstancePerApiRequest();
+            builder.RegisterType<HttpUrlProvider>().As<IHttpUrlProvider>();
             builder.RegisterType<ResourceLinker>().As<IResourceLinker>();
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             var container = builder.Build();
