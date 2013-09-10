@@ -27,6 +27,9 @@ namespace HyperLibrary.ResouceClient
                 case LibaryOptions.ExploreLibrary:
                     await ExploreLibrary();
                     break;
+                case LibaryOptions.ViewCheckedOutBooks:
+                    ViewCheckedOutBooks();
+                    break;
                 case LibaryOptions.ReturnBooks:
                     await ReturnBooks();
                     break;
@@ -34,6 +37,17 @@ namespace HyperLibrary.ResouceClient
                     return;
             }
             await StartDemo();   
+        }
+
+        private void ViewCheckedOutBooks()
+        {
+            Console.WriteLine();
+            Console.WriteLine("**************** Listing All Checked out Books ****************");
+            Console.WriteLine();
+            foreach (Book book in _bookBag)
+            {
+                Console.WriteLine("{0} : '{1}' by {2}", book.Id, book.Title, book.Author);
+            }
         }
 
         private async Task ReturnBooks()
@@ -72,8 +86,9 @@ namespace HyperLibrary.ResouceClient
         {
 
             Console.WriteLine("1 - Explore the library.");
-            Console.WriteLine("2 - Return checkout books");
-            Console.WriteLine("3 - Leave this place");
+            Console.WriteLine("2 - View checked out books");
+            Console.WriteLine("3 - Return books");
+            Console.WriteLine("4 - Leave this place");
             Console.WriteLine();
             Console.WriteLine("What would you like to do?");
             string enteredText = Console.ReadLine();
@@ -84,8 +99,9 @@ namespace HyperLibrary.ResouceClient
         public enum LibaryOptions
         {
             ExploreLibrary = 1,
-            ReturnBooks = 2,
-            LeaveLibary = 3,
+            ViewCheckedOutBooks = 2,
+            ReturnBooks = 3,
+            LeaveLibary = 4,
         }
 
         private static bool ShouldCheckout()

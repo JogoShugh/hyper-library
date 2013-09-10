@@ -14,7 +14,7 @@ namespace HyperLibrary.ResouceClient
         private const string ListBooksRelativeUri = "api/books";
         private const string GetBookRelativeUri = "/api/books/{0}";
         private const string CheckOutBookRelativeUri = "/api/checkedout/{0}";
-        private const string CheckInBookRelativeUri = "/api/checkedin/{0}";
+        private const string CheckInBookRelativeUri = "/api/checkin/{0}";
 
         public LibraryApiClient(Uri serverEndPoint)
         {
