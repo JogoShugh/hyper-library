@@ -37,33 +37,19 @@ namespace HyperLibrary.ResouceClient
             await Explore();   
         }
 
-        private void ViewCheckedOutBooks()
+        private LibaryOptions OfferOptions()
         {
+            Console.WriteLine("1 - Explore the library.");
+            Console.WriteLine("2 - View checked out books");
+            Console.WriteLine("3 - Return books");
+            Console.WriteLine("4 - Leave this place!");
             Console.WriteLine();
-            Console.WriteLine("**************** Listing All Checked out Books ****************");
-            Console.WriteLine();
-            foreach (Book book in _bookBag)
-            {
-                Console.WriteLine("{0} : '{1}' by {2}", book.Id, book.Title, book.Author);
-            }
+            Console.WriteLine("What would you like to do?");
+            string enteredText = Console.ReadLine();
+            int option = Convert.ToInt32(enteredText); // should error handle a little better :) 
+            return (LibaryOptions)option;
         }
 
-        private async Task ReturnBooks()
-        {
-            Console.WriteLine();
-            Console.WriteLine("**************** Listing Books You Have Checked Out ****************");
-            Console.WriteLine();
-            foreach (Book book in _bookBag)
-            {
-                Console.WriteLine("{0} : '{1}' by {2}", book.Id, book.Title, book.Author);
-            }
-            Console.WriteLine();
-            Console.WriteLine("Enter the number of the book you would like to return.");
-            string enteredText = Console.ReadLine();
-            int bookId = Convert.ToInt32(enteredText); // should error handle a little better :) 
-            await TryCheckInBook(bookId);
-            Console.WriteLine();
-        }
 
         private async Task ExploreLibrary()
         {
@@ -80,21 +66,27 @@ namespace HyperLibrary.ResouceClient
             Console.WriteLine();
         }
 
-        private LibaryOptions OfferOptions()
+        private async Task ReturnBooks()
         {
-
-            Console.WriteLine("1 - Explore the library.");
-            Console.WriteLine("2 - View checked out books");
-            Console.WriteLine("3 - Return books");
-            Console.WriteLine("4 - Leave this place");
+            ViewCheckedOutBooks();
             Console.WriteLine();
-            Console.WriteLine("What would you like to do?");
+            Console.WriteLine("Enter the number of the book you would like to return.");
             string enteredText = Console.ReadLine();
-            int option = Convert.ToInt32(enteredText); // should error handle a little better :) 
-            return (LibaryOptions) option;
+            int bookId = Convert.ToInt32(enteredText); // should error handle a little better :) 
+            await TryCheckInBook(bookId);
+            Console.WriteLine();
         }
 
-
+        private void ViewCheckedOutBooks()
+        {
+            Console.WriteLine();
+            Console.WriteLine("**************** Listing All Checked out Books ****************");
+            Console.WriteLine();
+            foreach (Book book in _bookBag)
+            {
+                Console.WriteLine("{0} : '{1}' by {2}", book.Id, book.Title, book.Author);
+            }
+        }
 
         private static bool ShouldCheckout()
         {
