@@ -8,6 +8,14 @@ namespace HyperLibrary.ResouceClient
     {
         private readonly Uri _serverEndpoint;
 
+        /// <summary>
+        /// A list of relative uris that this client interacts with. 
+        /// </summary>
+        private const string ListBooksRelativeUri = "api/books";
+        private const string GetBookRelativeUri = "/api/books/{0}";
+        private const string CheckOutBookRelativeUri = "/api/checkedout/{0}";
+        private const string CheckInBookRelativeUri = "/api/checkedin/{0}";
+
         public LibraryApiClient(Uri serverEndPoint)
         {
             _serverEndpoint = serverEndPoint;
@@ -18,7 +26,7 @@ namespace HyperLibrary.ResouceClient
             using (var client = new HttpClient())
             {
                 client.BaseAddress = _serverEndpoint;
-                var result = await client.GetAsync(string.Format("/api/checkedout/{0}", bookId));
+                var result = await client.GetAsync(string.Format(CheckOutBookRelativeUri, bookId));
                 return result.IsSuccessStatusCode;
             }
         }
@@ -28,7 +36,7 @@ namespace HyperLibrary.ResouceClient
             using (var client = new HttpClient())
             {
                 client.BaseAddress = _serverEndpoint;
-                var result = await client.GetAsync("/api/books");
+                var result = await client.GetAsync(ListBooksRelativeUri);
                 return await result.Content.ReadAsAsync<Books>();
             }
         }
@@ -38,18 +46,17 @@ namespace HyperLibrary.ResouceClient
             using (var client = new HttpClient())
             {
                 client.BaseAddress = _serverEndpoint;
-                var result = await client.GetAsync(string.Format("/api/books/{0}", id));
+                var result = await client.GetAsync(string.Format(GetBookRelativeUri, id));
                 return await result.Content.ReadAsAsync<Book>();
             }
         }
-
 
         public async Task<bool> CheckInBook(int id)
         {
             using (var client = new HttpClient())
             {
                 client.BaseAddress = _serverEndpoint;
-                var result = await client.GetAsync(string.Format("/api/checkedin/{0}", id));
+                var result = await client.GetAsync(string.Format(CheckInBookRelativeUri, id));
                 return result.IsSuccessStatusCode;
             }
         }
