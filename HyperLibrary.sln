@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperLibrary.Core", "HyperL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperLibrary.ConsoleHost", "HyperLibrary.ConsoleHost\HyperLibrary.ConsoleHost.csproj", "{93343670-4E39-4F22-9025-7BFF3AD1E19E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperLibrary.ResouceClient", "HyperLibrary.ResouceClient\HyperLibrary.ResouceClient.csproj", "{1DE9B22A-0298-43F1-9F80-AA090A629BA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{93343670-4E39-4F22-9025-7BFF3AD1E19E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93343670-4E39-4F22-9025-7BFF3AD1E19E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93343670-4E39-4F22-9025-7BFF3AD1E19E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DE9B22A-0298-43F1-9F80-AA090A629BA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DE9B22A-0298-43F1-9F80-AA090A629BA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DE9B22A-0298-43F1-9F80-AA090A629BA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DE9B22A-0298-43F1-9F80-AA090A629BA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
