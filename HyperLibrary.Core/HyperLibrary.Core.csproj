@@ -77,6 +77,7 @@
     <Compile Include="Controllers\CheckInController.cs" />
     <Compile Include="Commands\AddBookCommandHandler.cs" />
     <Compile Include="ApiServiceConfiguration.cs" />
+    <Compile Include="Controllers\FeeController.cs" />
     <Compile Include="Controllers\FinesController.cs" />
     <Compile Include="Controllers\RootController.cs" />
     <Compile Include="LibraryModel\AlreadyCheckedOutException.cs" />

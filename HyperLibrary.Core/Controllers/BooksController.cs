@@ -61,13 +61,4 @@ namespace HyperLibrary.Core.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
     }
-
-    public class FeeController : ApiController
-    {
-        public HttpResponseMessage Post()
-        {
-            // pay the fee off
-            return Request.CreateResponse(HttpStatusCode.OK);
-        }
-    }
 }

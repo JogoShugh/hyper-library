@@ -25,6 +25,7 @@ namespace HyperLibrary.ConsoleHost
             host.OpenAsync().Wait();
 
             StartRegularRestDemo().Wait();
+            //StartHypermediaRestDemo().Wait();
 
             Console.WriteLine("Press any key to exit");
             Console.ReadLine();
@@ -34,8 +35,13 @@ namespace HyperLibrary.ConsoleHost
 
         private static Task StartRegularRestDemo() 
         {
-           LibraryLinkExplorer d = new LibraryLinkExplorer(new Uri(ServerUri, "api"));
-           // LibraryExplorer d = new LibraryExplorer(ServerUri);
+           LibraryExplorer d = new LibraryExplorer(ServerUri);
+            return d.Explore();
+        }
+
+        private static Task StartHypermediaRestDemo()
+        {
+            LibraryLinkExplorer d = new LibraryLinkExplorer(new Uri(ServerUri, "api"));
             return d.Explore();
         }
     }
