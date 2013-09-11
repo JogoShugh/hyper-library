@@ -8,4 +8,14 @@ namespace HyperLibrary.Core.Resources
         public string Author { get; set; }
         public string CoverFilename { get; set; }
     }
+
+    public class FinesResource : LinkableResource
+    {
+        
+    }
+
+    public class ThanksResource : LinkableResource
+    {
+
+    }
 }

@@ -38,6 +38,10 @@
     <Reference Include="Autofac.Integration.WebApi">
       <HintPath>..\packages\Autofac.WebApi.3.1.0\lib\net40\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
+    <Reference Include="HyperLibrary.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\HyperLibrary.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -67,17 +71,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\PayFinesCommandHandler.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CheckedOutController.cs" />
     <Compile Include="Controllers\CheckInController.cs" />
     <Compile Include="Commands\AddBookCommandHandler.cs" />
     <Compile Include="ApiServiceConfiguration.cs" />
+    <Compile Include="Controllers\FinesController.cs" />
     <Compile Include="Controllers\RootController.cs" />
     <Compile Include="LibraryModel\AlreadyCheckedOutException.cs" />
     <Compile Include="Queries\AllBooksQueryHandler.cs" />
     <Compile Include="Queries\AllCheckedInBooksQueryHandler.cs" />
     <Compile Include="Queries\AllCheckedOutBooksQueryHandler.cs" />
     <Compile Include="LibraryModel\Book.cs" />
+    <Compile Include="Queries\GetFinesQueryHandler.cs" />
     <Compile Include="Queries\GetLibraryRootHandler.cs" />
     <Compile Include="Resources\BookCatalogResource.cs" />
     <Compile Include="Resources\BookResource.cs" />
