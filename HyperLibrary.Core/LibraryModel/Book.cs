@@ -31,7 +31,7 @@ namespace HyperLibrary.Core.LibraryModel
         {
             if(State != BookState.CheckedIn)
             {
-                throw new Exception(); // do better than this
+                throw new AlreadyCheckedOutException(this);
             }
             State = BookState.CheckedOut;
             CheckedOutTo = checkedOutByUser;
@@ -39,11 +39,11 @@ namespace HyperLibrary.Core.LibraryModel
 
         public void CheckIn(string checkInByUser)
         {
-            if (State == BookState.CheckedOut)
+            if (State != BookState.CheckedOut)
             {
-                throw new Exception(); // do better than this
+                throw new AlreadyCheckedInException(this);
             }
-            State = BookState.CheckedOut;
+            State = BookState.CheckedIn;
             CheckedOutTo = null;
         }
     }

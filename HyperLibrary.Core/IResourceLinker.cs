@@ -15,8 +15,8 @@ namespace HyperLibrary.Core
         /// <param name="apiMethod">An expression showing which API action to generate a URI for.</param>
         /// <param name="rel"></param>
         /// <param name="name"></param>
-        /// <param name="method"></param>
+        /// <param name="httpMethod"></param>
         /// <returns>A link to the resource</returns>
-        Link GetResourceLink<TApiController>(Expression<Action<TApiController>> apiMethod, string rel, string name, HttpMethod method) where TApiController : ApiController;
+        Link GetResourceLink<TApiController>(Expression<Action<TApiController>> apiMethod, string rel, string name, HttpMethod httpMethod) where TApiController : ApiController;
     }
 }

@@ -69,6 +69,10 @@
       <Project>{2F62B326-33C6-4517-B335-D4FF3CC28D33}</Project>
       <Name>HyperLibrary.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HyperLibrary.LinkClient\HyperLibrary.LinkClient.csproj">
+      <Project>{D7DECC3E-4D57-4E40-BFD7-6D32508B1C7D}</Project>
+      <Name>HyperLibrary.LinkClient</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HyperLibrary.ResouceClient\HyperLibrary.ResouceClient.csproj">
       <Project>{1DE9B22A-0298-43F1-9F80-AA090A629BA0}</Project>
       <Name>HyperLibrary.ResouceClient</Name>

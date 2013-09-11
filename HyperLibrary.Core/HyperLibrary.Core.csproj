@@ -72,10 +72,13 @@
     <Compile Include="Controllers\CheckInController.cs" />
     <Compile Include="Commands\AddBookCommandHandler.cs" />
     <Compile Include="ApiServiceConfiguration.cs" />
+    <Compile Include="Controllers\RootController.cs" />
+    <Compile Include="LibraryModel\AlreadyCheckedOutException.cs" />
     <Compile Include="Queries\AllBooksQueryHandler.cs" />
     <Compile Include="Queries\AllCheckedInBooksQueryHandler.cs" />
     <Compile Include="Queries\AllCheckedOutBooksQueryHandler.cs" />
     <Compile Include="LibraryModel\Book.cs" />
+    <Compile Include="Queries\GetLibraryRootHandler.cs" />
     <Compile Include="Resources\BookCatalogResource.cs" />
     <Compile Include="Resources\BookResource.cs" />
     <Compile Include="LibraryModel\BookResourceMapper.cs" />
@@ -88,6 +91,7 @@
     <Compile Include="IHttpUrlProvider.cs" />
     <Compile Include="LibraryModel\InMemoryBookRepository.cs" />
     <Compile Include="IResourceLinker.cs" />
+    <Compile Include="Resources\Library.cs" />
     <Compile Include="Resources\Link.cs" />
     <Compile Include="Resources\LinkableResource.cs" />
     <Compile Include="ResourceLinker.cs" />

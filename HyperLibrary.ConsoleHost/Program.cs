@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web.Http.SelfHost;
 using HyperLibrary.Core;
+using HyperLibrary.LinkClient;
 using HyperLibrary.ResouceClient;
 
 namespace HyperLibrary.ConsoleHost
@@ -33,6 +34,7 @@ namespace HyperLibrary.ConsoleHost
 
         private static Task StartRegularRestDemo() 
         {
+           // LibraryLinkExplorer d = new LibraryLinkExplorer(new Uri(ServerUri, "api"));
             LibraryExplorer d = new LibraryExplorer(ServerUri);
             return d.Explore();
         }

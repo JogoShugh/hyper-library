@@ -6,4 +6,5 @@ namespace HyperLibrary.Core.Resources
     {
         public IList<BookResource> Catalog { get; set; }
     }
+
 }
