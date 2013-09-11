@@ -1,0 +1,23 @@
+﻿@model HyperLibrary.Core.LibraryModel.Book
+
+@{
+    ViewBag.Title = "title";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+
+ <h4> By @Model.Author</small></h4>
+ <img src="@Url.Content(string.Format("/Content/bookcovers/"+Model.CoverFilename))" alt="@Model.Title" width="200px" height="200px"/>
+ <p>@Model.Description</p>
+ @Html.ActionLink("Home","Index")
+<br/>
+@if (Model.IsCheckedIn)
+{
+     @Html.ActionLink("CheckOut","CheckOut",new{id =Model.Id})
+}
+<br/>
+@if (Model.IsCheckedOut)
+{ 
+ @Html.ActionLink("CheckIn","CheckIn",new{id =Model.Id})   
+}

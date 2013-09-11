@@ -44,6 +44,9 @@
     <Reference Include="Autofac">
       <HintPath>..\packages\Autofac.3.1.1\lib\net40\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\packages\Autofac.Mvc4.3.1.0\lib\net40\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Autofac.Integration.WebApi">
       <HintPath>..\packages\Autofac.WebApi.3.1.0\lib\net40\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
@@ -177,7 +180,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
-    <Content Include="browser.html" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -245,30 +253,15 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
-    <Content Include="js\hal.js" />
-    <Content Include="js\hal\browser.js" />
-    <Content Include="js\hal\http\client.js" />
-    <Content Include="js\hal\resource.js" />
-    <Content Include="js\hal\views\browser.js" />
-    <Content Include="js\hal\views\documentation.js" />
-    <Content Include="js\hal\views\embedded_resource.js" />
-    <Content Include="js\hal\views\embedded_resources.js" />
-    <Content Include="js\hal\views\explorer.js" />
-    <Content Include="js\hal\views\inspector.js" />
-    <Content Include="js\hal\views\links.js" />
-    <Content Include="js\hal\views\location_bar.js" />
-    <Content Include="js\hal\views\navigation.js" />
-    <Content Include="js\hal\views\non_safe_request_dialog.js" />
-    <Content Include="js\hal\views\properties.js" />
-    <Content Include="js\hal\views\query_uri_dialog.js" />
-    <Content Include="js\hal\views\request_headers.js" />
-    <Content Include="js\hal\views\resource.js" />
-    <Content Include="js\hal\views\response.js" />
-    <Content Include="js\hal\views\response_body.js" />
-    <Content Include="js\hal\views\response_headers.js" />
-    <Content Include="Scripts\jquery-1.8.2.js" />
-    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
@@ -281,7 +274,6 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="styles.css" />
     <Content Include="vendor\css\bootstrap-responsive.css" />
     <Content Include="vendor\css\bootstrap.css" />
     <Content Include="vendor\img\glyphicons-halflings-white.png" />
@@ -316,9 +308,10 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\GetBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

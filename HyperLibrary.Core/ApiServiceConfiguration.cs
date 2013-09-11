@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Formatting;
-using System.Net.Http.Headers;
-using Autofac;
+﻿using Autofac;
 using System.Reflection;
 using System.Web.Http;
 using Autofac.Integration.WebApi;
 using HyperLibrary.Core.Commands;
 using HyperLibrary.Core.LibraryModel;
 using HyperLibrary.Core.Queries;
-using HyperLibrary.Core.Resources;
-using Newtonsoft.Json;
 
 
 namespace HyperLibrary.Core
@@ -27,7 +20,6 @@ namespace HyperLibrary.Core
 
         public void Configure()
         {
-          //  _configuration.Formatters.Add(new JsonHalMediaTypeFormatter());
             ConfigureRoutes();
             ConfigureDependencies();
         }

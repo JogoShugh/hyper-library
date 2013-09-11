@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using System.Web.Http.SelfHost;
 using HyperLibrary.Core;
-using HyperLibrary.LinkClient;
 using HyperLibrary.ResouceClient;
 
 namespace HyperLibrary.ConsoleHost
