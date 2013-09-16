@@ -24,8 +24,8 @@ namespace HyperLibrary.ConsoleHost
 
             host.OpenAsync().Wait();
 
-            StartRegularRestDemo().Wait();
-            //StartHypermediaRestDemo().Wait();
+         //  StartRegularRestDemo().Wait();
+           StartHypermediaRestDemo().Wait();
 
             Console.WriteLine("Press any key to exit");
             Console.ReadLine();

@@ -19,7 +19,7 @@ namespace HyperLibrary.LinkClient
             Console.WriteLine();
             Console.WriteLine("**************** Welcome to the Library ****************");
             dynamic root = await _libraryLinkClient.GetRoot();
-            var link = SelectAvalibleLink(root);
+            var link = SelectAvailableLinks(root);
             await FollowYourNose(link);
         }
 
@@ -28,12 +28,12 @@ namespace HyperLibrary.LinkClient
             Console.WriteLine(linkToFollow);
             Console.WriteLine("**** Follow your nose '{0}' ****",linkToFollow.Rel.ToString());
             var response = await _libraryLinkClient.Follow(linkToFollow);
-            var link = SelectAvalibleLink(response);
+            var link = SelectAvailableLinks(response);
             await FollowYourNose(link);
         }
 
 
-        private dynamic SelectAvalibleLink(dynamic response)
+        private dynamic SelectAvailableLinks(dynamic response)
         {
             int optionIndex = 0;
             var allLinks = FindAllLinks(response);
