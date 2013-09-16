@@ -24,6 +24,8 @@ namespace HyperLibrary.Core.Queries
             var books = _bookRepository.GetAll();
             BookCatalogResource resource = new BookCatalogResource();
             resource.Self = _resourceLinker.GetResourceLink<BooksController>(request => request.Get(), "self","Library Catalog", HttpMethod.Get);
+            resource.Links = new List<Link>();
+            resource.Links.Add(_resourceLinker.GetResourceLink<RootController>(request => request.Get(),"home","Home",HttpMethod.Get));
             resource.Catalog = new List<BookResource>();
             foreach(var book in books)
             {

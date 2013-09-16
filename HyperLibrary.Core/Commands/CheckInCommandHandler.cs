@@ -17,7 +17,14 @@ namespace HyperLibrary.Core.Commands
         public BookResource Execute(int checkIn)
         {
             var book = _bookRepository.Get(checkIn);
-            book.CheckIn("fake user");
+            try
+            {
+                book.CheckIn("fake user");
+            }
+            catch (AlreadyCheckedInException)
+            {
+                //log it
+            }
             var resource = _bookResourceMapper.MapToResouce(book);
             return resource;
         }

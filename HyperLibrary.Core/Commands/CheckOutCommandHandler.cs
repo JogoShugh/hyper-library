@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using HyperLibrary.Core.LibraryModel;
 using HyperLibrary.Core.Resources;
 
@@ -17,8 +18,17 @@ namespace HyperLibrary.Core.Commands
         public BookResource Execute(int checkIn)
         {
             var book = _bookRepository.Get(checkIn);
-            book.CheckOut("fake user");
+            var links = new List<Link>();
+            try
+            {
+                book.CheckOut("fake user");
+            }
+            catch (AlreadyCheckedOutException)
+            {
+                //log things
+            }
             var resource = _bookResourceMapper.MapToResouce(book);
+            resource.Links.AddRange(links);
             return resource;
         }
     }

@@ -11,6 +11,27 @@ namespace HyperLibrary.Core.LibraryModel
         bool Delete(int bookId);
     }
 
+    public class InMemoryFineRepository : IInMemoryFineRepository
+    {
+        private static bool _hasFines = true;
+
+        public bool HasFines()
+        {
+            return _hasFines;
+        }
+
+        public void PayFines()
+        {
+            _hasFines = false;
+        }
+    }
+
+    public interface IInMemoryFineRepository
+    {
+        bool HasFines();
+        void PayFines();
+    }
+
     public class InMemoryBookRepository : IInMemoryBookRepository
     {
         private static readonly List<Book> Books;

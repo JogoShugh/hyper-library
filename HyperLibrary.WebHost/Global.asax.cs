@@ -2,7 +2,11 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Autofac;
+using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
 using HyperLibrary.Core;
+using HyperLibrary.Core.LibraryModel;
 
 namespace HyperLibrary.WebHost
 {
@@ -16,6 +20,11 @@ namespace HyperLibrary.WebHost
         protected void Application_Start()
         {
             WebApiConfig.Configure();
+            var builder = new ContainerBuilder();
+            builder.RegisterType<InMemoryBookRepository>().As<IInMemoryBookRepository>().InstancePerApiRequest();
+            builder.RegisterControllers(typeof(WebApiApplication).Assembly);
+            var container = builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

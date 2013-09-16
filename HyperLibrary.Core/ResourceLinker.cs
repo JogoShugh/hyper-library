@@ -33,9 +33,9 @@ namespace HyperLibrary.Core
         /// <param name="method">An expression to generate a url for</param>
         /// <param name="rel">The description of this links relation to current document</param>
         /// <param name="name">The name of the link relation</param>
-        /// <param name="meth"> </param>
+        /// <param name="httpMethod"> </param>
         /// <returns>A resource link relation</returns>
-        public Link GetResourceLink<T>(Expression<Action<T>> method, string rel, string name, HttpMethod meth) where T : ApiController
+        public Link GetResourceLink<T>(Expression<Action<T>> method, string rel, string name, HttpMethod httpMethod) where T : ApiController
         {
             string routeNameForAction = ReflectRouteNameForApiAction(method);
             IHttpRoute route = GetRouteForAction(routeNameForAction);
@@ -44,7 +44,7 @@ namespace HyperLibrary.Core
                 throw new RouteNotFoundException(string.Format("Route for action '{0}' was not found", routeNameForAction));
             }
             var uri = BindTemplate(method, route);
-            return new Link{Name = name,Rel = rel, Uri = uri};
+            return new Link{Name = name,Rel = rel, Href = uri,Method= httpMethod.ToString()};
         }
 
         private Uri BindTemplate<T>(Expression<Action<T>> method, IHttpRoute route) where T : ApiController

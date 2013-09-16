@@ -34,6 +34,7 @@ namespace HyperLibrary.Core.LibraryModel
                 var checkoutLink = _resourceLinker.GetResourceLink<CheckedOutController>(request => request.Post(book.Id), "Check Out", book.Title, HttpMethod.Post);
                 resource.Links.Add(checkoutLink);
             }
+            resource.Links.Add(_resourceLinker.GetResourceLink<RootController>(request => request.Get(),"Home","Go Home",HttpMethod.Get));
             return resource;
         }
     }

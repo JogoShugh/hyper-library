@@ -10,11 +10,13 @@ namespace HyperLibrary.Core.Controllers
     {
         private readonly AllCheckedOutBooksQueryHandler _checkedOutBooksQueryHandler;
         private readonly CheckOutCommandHandler _checkoutCommandHandler;
+        private readonly GetFinesQueryHandler _finesQuery;
 
-        public CheckedOutController(AllCheckedOutBooksQueryHandler checkedOutBooksQueryHandler, CheckOutCommandHandler checkoutCommandHandler)
+        public CheckedOutController(AllCheckedOutBooksQueryHandler checkedOutBooksQueryHandler, CheckOutCommandHandler checkoutCommandHandler, GetFinesQueryHandler finesQuery)
         {
             _checkedOutBooksQueryHandler = checkedOutBooksQueryHandler;
             _checkoutCommandHandler = checkoutCommandHandler;
+            _finesQuery = finesQuery;
         }
 
         // GET api/checkedout
@@ -27,6 +29,11 @@ namespace HyperLibrary.Core.Controllers
         // GET api/checkedout
         public HttpResponseMessage Post(int id)
         {
+            var finesResource = _finesQuery.Query();
+            if (finesResource != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.Forbidden,finesResource);
+            }
             var book = _checkoutCommandHandler.Execute(id);
             if (book != null)
             {

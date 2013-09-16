@@ -45,7 +45,7 @@ namespace HyperLibrary.Core.Controllers
         {
             var bookResource = _addBookQueryHandler.Execute(book);
             var httpResponseMessage = Request.CreateResponse(HttpStatusCode.Created, bookResource);
-            httpResponseMessage.Headers.Location = bookResource.Self.Uri;
+            httpResponseMessage.Headers.Location = bookResource.Self.Href;
             return httpResponseMessage;
         }
 

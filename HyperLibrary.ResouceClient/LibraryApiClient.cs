@@ -26,7 +26,7 @@ namespace HyperLibrary.ResouceClient
             using (var client = new HttpClient())
             {
                 client.BaseAddress = _serverEndpoint;
-                var result = await client.GetAsync(string.Format(CheckOutBookRelativeUri, bookId));
+                var result = await client.PostAsync(string.Format(CheckOutBookRelativeUri, bookId),new StringContent("Yes"));
                 return result.IsSuccessStatusCode;
             }
         }
@@ -56,7 +56,7 @@ namespace HyperLibrary.ResouceClient
             using (var client = new HttpClient())
             {
                 client.BaseAddress = _serverEndpoint;
-                var result = await client.GetAsync(string.Format(CheckInBookRelativeUri, id));
+                var result = await client.PostAsync(string.Format(CheckInBookRelativeUri, id),new StringContent(""));
                 return result.IsSuccessStatusCode;
             }
         }
