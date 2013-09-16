@@ -52,15 +52,15 @@ namespace HyperLibrary.LinkClient
 
         private static List<dynamic> FindAllLinks(dynamic response)
         {
-            JObject jObject = (JObject) response;
+            var jObject = (JObject) response;
 
-            List<dynamic> allLinks = new List<dynamic>();
+            var allLinks = new List<dynamic>();
             WalkNode(jObject, n =>
             {
                 JToken token = n["Links"];
                 if (token != null && token.Type == JTokenType.Array)
                 {
-                    JArray tokenArray = (JArray) token;
+                    var tokenArray = (JArray) token;
                     allLinks.AddRange((dynamic) tokenArray);
                 }
             });
