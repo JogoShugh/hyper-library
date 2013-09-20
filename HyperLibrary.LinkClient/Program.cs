@@ -28,7 +28,5 @@ namespace HyperLibrary.LinkClient
 
             host.CloseAsync().Wait();
         }
-
-     
     }
 }
