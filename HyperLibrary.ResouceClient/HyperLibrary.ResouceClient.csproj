@@ -56,6 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Demo.cs" />
+    <Compile Include="HyperLibraryInMemoryHost.cs" />
     <Compile Include="Model\BookBag.cs" />
     <Compile Include="Model\Books.cs" />
     <Compile Include="Model\Book.cs" />
