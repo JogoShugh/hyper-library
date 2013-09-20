@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using HyperLibrary.ResouceClient.Model;
 
 namespace HyperLibrary.ResouceClient
 {

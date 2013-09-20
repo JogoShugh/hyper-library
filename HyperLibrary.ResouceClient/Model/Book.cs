@@ -1,4 +1,4 @@
-﻿namespace HyperLibrary.ResouceClient
+﻿namespace HyperLibrary.ResouceClient.Model
 {
     public class Book
     {

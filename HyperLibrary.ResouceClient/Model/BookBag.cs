@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace HyperLibrary.ResouceClient
+namespace HyperLibrary.ResouceClient.Model
 {
     public class BookBag : List<Book>
     {

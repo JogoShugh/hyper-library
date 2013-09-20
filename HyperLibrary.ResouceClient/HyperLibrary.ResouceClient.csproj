@@ -56,10 +56,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookBag.cs" />
-    <Compile Include="Books.cs" />
-    <Compile Include="Book.cs" />
-    <Compile Include="LibaryOptions.cs" />
+    <Compile Include="Model\BookBag.cs" />
+    <Compile Include="Model\Books.cs" />
+    <Compile Include="Model\Book.cs" />
+    <Compile Include="Model\LibaryOptions.cs" />
     <Compile Include="LibraryExplorer.cs" />
     <Compile Include="LibraryApiClient.cs" />
     <Compile Include="Program.cs" />

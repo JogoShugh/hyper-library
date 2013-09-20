@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace HyperLibrary.ResouceClient
+namespace HyperLibrary.ResouceClient.Model
 {
     public class Books
     {
