@@ -8,9 +8,9 @@ The API is simple, it allows you to explore a list of books, check books in, and
 ## Contained Within
 A sample library API, along with two clients.
 
-1. Api Implementation (Link to read me)
-2. A Resource Driven Client  (Link to read me)
-3. A Hypermedia Driven Client (Link to read me)
+1. Api Implementation 
+2. A Resource Driven Client 
+3. A Hypermedia Driven Client 
 
 ## The Scenario 
 The API makes its way into the public domain, and a couple of wild clients appear (hark, someone is using our API!).
