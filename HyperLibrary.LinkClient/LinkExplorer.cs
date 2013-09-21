@@ -25,7 +25,7 @@ namespace HyperLibrary.LinkClient
 
         private async Task FollowYourNose(dynamic linkToFollow)
         {
-            Console.WriteLine(linkToFollow);
+            Console.WriteLine();
             Console.WriteLine("**** Follow your nose '{0}' ****",linkToFollow.Rel.ToString());
             var response = await _libraryLinkClient.Follow(linkToFollow);
             var link = SelectAvailableLinks(response);
@@ -86,7 +86,6 @@ namespace HyperLibrary.LinkClient
                     WalkNode(child.Value, action);
                 }
             }
-
         }
     }
 }
