@@ -20,6 +20,23 @@ out, and never checking them back in. This will not do!
 To combat the ever growing pressures of late returns, the *workflow* of our API must change. Now, users with unpaid fines
 (due to late returns) must first *pay* their fines, before checking out any more books.
 
+To simulate the change in this workflow - find the class
+
+```
+        InMemoryFineRepository
+````
+
+and flip the magic switch 
+
+`````
+
+        /// <summary>
+        /// Switch me to 'true' enable fines
+        /// </summary>
+        private static bool _hasFines = false;
+        
+`````
+
 ## The Outcome 
 We have two wild clients out there, both of which were developed prior to the *pay your fines* API change. One of these clients will
 break, and one will survive. Who will win?
