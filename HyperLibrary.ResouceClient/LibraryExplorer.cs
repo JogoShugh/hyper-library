@@ -56,15 +56,29 @@ namespace HyperLibrary.ResouceClient
             Console.WriteLine();
             Console.WriteLine("What would you like to do?");
 
-            var option = GetIntegerOption();
+            var option = GetIntegerOption(commandOptions.Count());
             return commandOptions.ElementAt(option);
         }
 
-        private static int GetIntegerOption()
+        private static int GetIntegerOption(int maxOption)
         {
             string enteredText = Console.ReadLine();
-            int option = Convert.ToInt32(enteredText); // should error handle a little better :) 
-            return option;
+            try
+            {
+                int option = Convert.ToInt32(enteredText);
+                if (option < 0 || option > maxOption)
+                {
+                    Console.WriteLine("What was that Captain? Give us any number from 0 to {0}....",maxOption-1);
+                    return GetIntegerOption(maxOption);
+                }
+                return option;
+              
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("What was that Captain? Give us a number please....");
+                return GetIntegerOption(maxOption);
+            }    
         }
     }
 }
