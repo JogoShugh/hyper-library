@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using HyperLibrary.ResouceClient.Model;
 
 namespace HyperLibrary.ResouceClient
 {
-    public class LibraryApiClient
+    internal class LibraryApiClient
     {
         private readonly Uri _serverEndpoint;
 

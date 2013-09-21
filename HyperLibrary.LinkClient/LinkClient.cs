@@ -33,6 +33,5 @@ namespace HyperLibrary.LinkClient
                 return await result.Content.ReadAsAsync<dynamic>();
             }
         }
-
     }
 }

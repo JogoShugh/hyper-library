@@ -13,7 +13,7 @@ namespace HyperLibrary.Core.LibraryModel
 
     public class InMemoryFineRepository : IInMemoryFineRepository
     {
-        private static bool _hasFines = true;
+        private static bool _hasFines = false;
 
         public bool HasFines()
         {
@@ -40,7 +40,7 @@ namespace HyperLibrary.Core.LibraryModel
         {
             Books = new List<Book>
                         {
-                            new Book{Id = 1,Title= "The Message Given To Me By Extra-Terrestrials", Author = "Claude Vorilhon 'Rael'",Description = "They Took Me To Their Planet",CoverFilename = "they-took-me-to-their-planet.jpg"},
+                            new Book{Id = 1,Title= "The Message Given To Me By Extra-Terrestrials", Author = "Claude Vorilhon",Description = "They Took Me To Their Planet",CoverFilename = "they-took-me-to-their-planet.jpg"},
                             new Book{Id = 2,Title= "The Little Book of Pants", Author = "Vestan Pance'",Description = @"At what point did an executive at Michael O'Mara Books Ltd say, 'let's take lots of famous quotes and insert the word PANTS into them, 'cos that will be really funny. ",CoverFilename = "the-little-book-of-pants.jpg"},
                             new Book{Id = 3,Title= "Our Mysterious Spaceship Moon", Author = "Don Wilson",Description = "Is the moon a hollowed-out spaceship sent to orbit our earth in the remote prehistoric past? Was it once inhabited by alien space travellers?",CoverFilename = "spaceship-moon.jpg"},
                             new Book{Id = 4,Title= "Look Eleven Years Younger", Author = " Gelett Burgess",Description = "You too can look not ten years, but eleven years younger!",CoverFilename = "look-eleven-years-younger.jpg"},
