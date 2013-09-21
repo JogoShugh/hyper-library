@@ -5,22 +5,25 @@ namespace HyperLibrary.ResouceClient
 {
     public class Demo
     {
-        private readonly Uri _serverUri;
+        private readonly Uri _serverUri= new Uri("http://localhost:9200");
+        private readonly HyperLibraryInMemoryHost _hyperLibrary;
+        private readonly LibraryExplorer _libraryExplorer;
 
-        public Demo(Uri serverUri)
+        public Demo()
         {
-            _serverUri = serverUri;
+            _hyperLibrary = new HyperLibraryInMemoryHost(_serverUri);
+            _libraryExplorer = new LibraryExplorer(new LibraryApiClient(_serverUri));
         }
 
         public async Task Go()
         {
-            var hyperLibrary = new HyperLibraryInMemoryHost(_serverUri);
-            await hyperLibrary.Start();
+            Console.WriteLine("*************** Starting the Hyper Library *****************");
+            await _hyperLibrary.Start();
 
-            var libraryExplorer = new LibraryExplorer(_serverUri);
-            await libraryExplorer.Explore();
+            await _libraryExplorer.Explore();
 
-            await hyperLibrary.Stop();
+            Console.WriteLine("*************** Stop the Hyper Library *********************");
+            await _hyperLibrary.Stop();
         }
     }
 }

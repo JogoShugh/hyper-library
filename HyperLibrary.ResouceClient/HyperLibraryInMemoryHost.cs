@@ -17,7 +17,7 @@ namespace HyperLibrary.ResouceClient
 
         public Task Start()
         {
-            Console.WriteLine("*************** Starting the Hyper Library *****************");
+
             var selfHostConfiguration = new HttpSelfHostConfiguration(_serverUri);
             var apiServiceConfiguration = new ApiServiceConfiguration(selfHostConfiguration);
             apiServiceConfiguration.Configure();
@@ -27,8 +27,6 @@ namespace HyperLibrary.ResouceClient
 
         public Task Stop()
         {
-            Console.WriteLine("Press any key to exit");
-            Console.ReadLine();
             return _host.CloseAsync();
         }
     }
