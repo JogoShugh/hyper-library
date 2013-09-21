@@ -77,6 +77,9 @@
     <Compile Include="Controllers\FinesController.cs" />
     <Compile Include="Controllers\RootController.cs" />
     <Compile Include="LibraryModel\AlreadyCheckedOutException.cs" />
+    <Compile Include="LibraryModel\IInMemoryBookRepository.cs" />
+    <Compile Include="LibraryModel\IInMemoryFineRepository.cs" />
+    <Compile Include="LibraryModel\InMemoryFineRepository.cs" />
     <Compile Include="Queries\AllBooksQueryHandler.cs" />
     <Compile Include="Queries\AllCheckedInBooksQueryHandler.cs" />
     <Compile Include="Queries\AllCheckedOutBooksQueryHandler.cs" />
