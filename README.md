@@ -1,66 +1,42 @@
-hyper-library
+Hyper-Library
 =============
 
-A reference Hypermedia API 
+A small sample used to illustrate some of the benefits of including links inside your next ASP.NET WebAPI implementation.
+The API is simple, it allows you to explore a list of books, check books in, and check them out again. No big deal. 
 
-The requirements below cover CRUD management of a library as well as a library book checkout/check in workflow.
+## Contained Within
+A sample library API, along with two API clients.
 
-1 Scenario: Retrieving books
-  * Given existing books
-    * When a GET request is made for all books
-      * Then all books are returned
-          
-  * Given an existing books
-     * When a GET request is made for it
-      * Then it is returned
-      * Then it should have an id
-      * Then it should have a title
-      * Then it should have a description
-      * Then it should have a state(check in,checked out )
-      * Then it should have a self link
-      * Then it should have a transition links
-  * Given an existing checked in book
-    * When a GET request is made for it
-      * Then it should have a checkout link
-  * Given an existing checked out book
-    * When a GET request is made for it
-      * Then it should have a check in link
-  * Given a book does not exist
-    * When a GET request is made for it
-      * Then a '404 Not Found' status is returned
-      
-2 Scenario: Creating an book
-   * Given a newly created book
-     * When a valid POST request is made
-        * Then an book resource should be created
-        * Then it should be returned
-        * Then a '201 Created' status is returned
-        * Then the location header will be set on the reponse to the resource location
-            
-3 Scenario: Deleting book
-  * Give an existing book
-    * When a DELETE request is made for it
-      * Then it should be deleted
-       * Then a '200 OK' status is returned
-  * Given a book does not exist
-    * When a DELETE request is made for it
-      * Then a '404 Not Found' status is returned
+1) Api Implementation (Link to read me)
+2) A Resource Driven Client  (Link to read me)
+3) A Hypermedia Driven Client (Link to read me)
 
-4 Scenario: Checking out a book
-  * Given an existing checked in book is to be checked out
-    * When a POST request is made with a checkout action
-        * Then it is checked out
-        * Then a '200 OK' is returned
-  *Given an existing checked out book is to be placed on hold 
-    * When a POST request is made with a checkin action
-        * Then it is checked in
-        * Then a '200 OK' is returned
-        * 
-5 Scenario: Checking in a book
-  * Given an existing checked out book is to be checked in
-    * When a POST request is made with a checkout action
-        * Then it is checked in
-        * Then a '200 OK' is returned
-  *Given an existing checked in book is not able to be checked back in
-    * When a POST request is made with a checkout action
-        * Then a '403 forbidden' is returned
+## The Scenario 
+The API makes its way into the public domain, and a couple of wild clients appear (HARK, someone is using our API!).
+We begin to celebrate a little too soon, as now the Grand Library Coucil has decreed that too many people are checking books
+out, and never checking them back in. This will not do! 
+
+To combat the ever growing pressures of late returns, the *workflow* of our API must change. Now, users with unpaid fines
+(due to late returns) must first *pay* their fines, before checking out any more books.
+
+## The Outcome 
+We have two wild clients out there, both of which were developed prior to the *pay your fines* API change. One of these clients will
+break, and one will survive. Who will win?
+
+The Resource Driven Client has baked within it, knowlegde of
+1) The avalible URI's
+2) The types being returned from the sever
+3) The workflow of listing books, checking books out, and returning them
+
+It has no knowledge of paying fines, as this was added after the original client was developed. 
+
+The Hypermedia Driven client has baked within it, knowlegde of
+1) How to find links in a response from the server
+2) How to follow those links
+
+## Note on Hypermedia Clients
+This is not designed to be a complete example on how to implement a hypermedia client. 
+
+
+
+
