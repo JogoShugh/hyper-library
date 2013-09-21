@@ -16,8 +16,12 @@ namespace HyperLibrary.Core.Queries
 
         public BookResource Query(int bookId)
         {
+            BookResource resource = null;
             Book book = _bookRepository.Get(bookId);
-            BookResource resource = _bookResourceMapper.MapToResouce(book);
+            if (book != null)
+            {
+                resource = _bookResourceMapper.MapToResouce(book);
+            }
             return resource;
         }
     }

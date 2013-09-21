@@ -35,7 +35,7 @@ namespace HyperLibrary.Core.Controllers
             var bookResource = _bookQueryHandler.Query(id);
             if(bookResource == null)
             {
-                Request.CreateErrorResponse(HttpStatusCode.NotFound, "Sorry - we could not find that book");
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Sorry - we could not find that book");
             }
             return Request.CreateResponse(HttpStatusCode.OK, bookResource);
         }
@@ -55,8 +55,7 @@ namespace HyperLibrary.Core.Controllers
             var foundAndDeleted = _deleteBookCommandHandler.Execute(id);
             if (!foundAndDeleted)
             {
-                //yes yes, it may not have been found but not deleted. This is a demo, its ok for now
-                Request.CreateErrorResponse(HttpStatusCode.NotFound, "Sorry - we could not find that book");
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Sorry - we could not find that book");
             }
             return Request.CreateResponse(HttpStatusCode.OK);
         }
