@@ -58,7 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LibraryLinkExplorer.cs" />
+    <Compile Include="Demo.cs" />
+    <Compile Include="HyperLibraryInMemoryHost.cs" />
+    <Compile Include="LinkExplorer.cs" />
     <Compile Include="LinkClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

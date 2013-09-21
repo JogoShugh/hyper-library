@@ -6,27 +6,27 @@ namespace HyperLibrary.LinkClient
 {
     class Program
     {
-        private static readonly Uri ServerUri = new Uri("http://localhost:9200");
-   
         static void Main(string[] args)
         {
-            Console.WriteLine("*************** Starting the Hyper Library *****************");
+            var demo = new Demo();
+            demo.Go().Wait();
+            //Console.WriteLine("*************** Starting the Hyper Library *****************");
 
-            var config = new HttpSelfHostConfiguration(ServerUri);
+            //var config = new HttpSelfHostConfiguration(ServerUri);
 
-            var apiServiceConfiguration = new ApiServiceConfiguration(config);
-            apiServiceConfiguration.Configure();
+            //var apiServiceConfiguration = new ApiServiceConfiguration(config);
+            //apiServiceConfiguration.Configure();
 
-            var host = new HttpSelfHostServer(config);
+            //var host = new HttpSelfHostServer(config);
 
-            host.OpenAsync().Wait();
-            LibraryLinkExplorer d = new LibraryLinkExplorer(new Uri(ServerUri, "api"));
-            d.Explore().Wait();
+            //host.OpenAsync().Wait();
+            //LinkExplorer d = new LinkExplorer(new Uri(ServerUri, "api"));
+            //d.Explore().Wait();
 
-            Console.WriteLine("Press any key to exit");
-            Console.ReadLine();
+            //Console.WriteLine("Press any key to exit");
+            //Console.ReadLine();
 
-            host.CloseAsync().Wait();
+            //host.CloseAsync().Wait();
         }
     }
 }

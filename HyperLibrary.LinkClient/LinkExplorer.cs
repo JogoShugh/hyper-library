@@ -5,11 +5,11 @@ using Newtonsoft.Json.Linq;
 
 namespace HyperLibrary.LinkClient
 {
-    public class LibraryLinkExplorer
+    public class LinkExplorer
     {
         private readonly LinkClient _libraryLinkClient;
 
-        public LibraryLinkExplorer(Uri serverEndpoint)
+        public LinkExplorer(Uri serverEndpoint)
         {
             _libraryLinkClient = new LinkClient(serverEndpoint);
         }
