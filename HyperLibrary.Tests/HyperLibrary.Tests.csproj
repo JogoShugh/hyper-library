@@ -55,12 +55,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookApiTests.cs" />
-    <Compile Include="BooksApiTests.cs" />
-    <Compile Include="CreateBooksApiTests.cs" />
+    <Compile Include="AgainstServerBooksApiTests.cs" />
+    <Compile Include="Tests\BookApiTests.cs" />
+    <Compile Include="Tests\BooksApiTests.cs" />
+    <Compile Include="Tests\CreateBooksApiTests.cs" />
     <Compile Include="InMemoryBooksApiTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RemoveBooksApiTests.cs" />
+    <Compile Include="Tests\RemoveBooksApiTests.cs" />
     <Compile Include="Server\ApiServerHost.cs" />
     <Compile Include="Server\AspNetApiServer.cs" />
     <Compile Include="Server\IApiServer.cs" />

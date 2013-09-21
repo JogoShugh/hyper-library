@@ -1,4 +1,5 @@
 ﻿using HyperLibrary.Tests.Server;
+using HyperLibrary.Tests.Tests;
 using NUnit.Framework;
 
 namespace HyperLibrary.Tests

@@ -5,7 +5,7 @@ using System.Net.Http;
 using HyperLibrary.Tests.Server;
 using NUnit.Framework;
 
-namespace HyperLibrary.Tests
+namespace HyperLibrary.Tests.Tests
 {
     public abstract class CreateBooksApiTests
     {

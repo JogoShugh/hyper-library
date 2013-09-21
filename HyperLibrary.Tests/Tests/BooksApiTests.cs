@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Dynamic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using HyperLibrary.Tests.Server;
 using NUnit.Framework;
 
-namespace HyperLibrary.Tests
+namespace HyperLibrary.Tests.Tests
 {
-    public abstract class BookApiTests
-    {
+    public abstract class BooksApiTests
+    { 
         private readonly IApiServer _server;
 
-        private const string BooksRelativeUri = "api/books/1";
+        private const string BooksRelativeUri = "api/books";
 
-        protected BookApiTests(IApiServer apiServer)
+        protected BooksApiTests(IApiServer apiServer)
         {
             _server = apiServer;
         }
@@ -31,7 +32,7 @@ namespace HyperLibrary.Tests
         }
 
         [Test]
-        public void GetOneBookReturnsSuccessfulStatusCode()
+        public void GetAllBooksReturnsSuccessfulStatusCode()
         {
             var valuesUri = new Uri(_server.BaseAddress, BooksRelativeUri);
             using (var client = new HttpClient(_server.ServerHandler))
@@ -43,7 +44,7 @@ namespace HyperLibrary.Tests
         }
 
         [Test]
-        public void CanSuccessfullyGetOneBook()
+        public void CanSuccessfullyGetAllBooks()
         {
             var valuesUri = new Uri(_server.BaseAddress, BooksRelativeUri);
             using (var client = new HttpClient(_server.ServerHandler))
@@ -51,18 +52,7 @@ namespace HyperLibrary.Tests
                 HttpResponseMessage httpResponseMessage = client.GetAsync(valuesUri).Result;
                 dynamic result = httpResponseMessage.Content.ReadAsAsync<ExpandoObject>().Result;
                 Assert.That(result, Is.Not.Null);
-                Assert.That(result.Id,Is.EqualTo(1));
-            }
-        }
-
-        [Test]
-        public void GetNonExistantBookReturnsNotFound()
-        {
-            var valuesUri = new Uri(_server.BaseAddress, "api/books/203");
-            using (var client = new HttpClient(_server.ServerHandler))
-            {
-                HttpResponseMessage httpResponseMessage = client.GetAsync(valuesUri).Result;
-                Assert.That(httpResponseMessage.StatusCode, Is.EqualTo(HttpStatusCode.NotFound));
+                Assert.That(Enumerable.Any(result.Catalog));
             }
         }
     }
