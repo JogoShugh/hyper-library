@@ -13,8 +13,6 @@ namespace HyperLibrary.Tests
     [TestFixture]
     public class AgainstServerBooksApiTests : BooksApiTests
     {
-
-
         public AgainstServerBooksApiTests(): base(new AspNetApiServer(ApiHost.URI))
         {
         }

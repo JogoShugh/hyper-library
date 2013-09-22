@@ -76,6 +76,7 @@
     <Compile Include="Controllers\FeeController.cs" />
     <Compile Include="Controllers\FinesController.cs" />
     <Compile Include="Controllers\RootController.cs" />
+    <Compile Include="IApiApplication.cs" />
     <Compile Include="LibraryModel\AlreadyCheckedOutException.cs" />
     <Compile Include="LibraryModel\IInMemoryBookRepository.cs" />
     <Compile Include="LibraryModel\IInMemoryFineRepository.cs" />

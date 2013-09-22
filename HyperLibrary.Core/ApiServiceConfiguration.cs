@@ -9,7 +9,7 @@ using HyperLibrary.Core.Queries;
 
 namespace HyperLibrary.Core
 {
-    public class ApiServiceConfiguration
+    public class ApiServiceConfiguration : IApiApplication
     {
         private readonly HttpConfiguration _configuration;
 
