@@ -6,7 +6,7 @@ A small sample used to illustrate some of the benefits of including links inside
 The API is simple, it allows you to explore a list of books, check books in, and check them out again.
 
 ## Contained Within
-A sample library API, along with two clients.
+A sample library API along with two clients.
 
 1. Api Implementation 
 2. A Resource Driven Client 
