@@ -20,7 +20,7 @@ out, and never checking them back in. This will not do!
 To combat the ever growing pressures of late returns, the *workflow* of our API must change. Now, users with unpaid fines
 (due to late returns) must first *pay* their fines, before checking out any more books.
 
-To simulate the change in this workflow - find the class
+To simulate the change in this workflow, find the class
 
 ```
         InMemoryFineRepository
@@ -41,7 +41,7 @@ and flip the magic switch
 We have two wild clients out there, both of which were developed prior to the *pay your fines* API change. One of these clients will
 break, and one will survive. Who will win?
 
-The Resource Driven Client has baked within it, knowledge of
+The Resource Driven Client has baked-in knowledge of
 
 1. The available URI's
 2. The types being returned from the server
@@ -49,13 +49,13 @@ The Resource Driven Client has baked within it, knowledge of
 
 It has no knowledge of paying fines, as this was added after the original client was developed.
 
-The Hypermedia Driven client has baked within it, knowledge of
+The Hypermedia Driven client has baked-in knowledge of
 
 1. How to find links in a response from the server
 2. How to follow those links
 
 When a new business rule is enforced, the Resource driven client is not able to tolerate those changes, while the Hypermedia 
-driven client is. This in a very trivial way, demonstrates the evolvality of the hypermedia client. 
+driven client is. This, in a very trivial way, demonstrates the evolvality of the hypermedia client. 
 
 ## A Note on this Hypermedia Client
 This is not designed to be a complete example on how to implement a hypermedia client! It is trivialised significantly.
