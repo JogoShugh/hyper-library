@@ -54,7 +54,7 @@ The Hypermedia Driven client has baked within it, knowledge of
 1. How to find links in a response from the server
 2. How to follow those links
 
-When the a new business rule is enforced, the Resource driven client is not able to tolerate those changes, while the Hypermedia 
+When a new business rule is enforced, the Resource driven client is not able to tolerate those changes, while the Hypermedia 
 driven client is. This in a very trivial way, demonstrates the evolvality of the hypermedia client. 
 
 ## A Note on this Hypermedia Client
